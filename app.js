@@ -17,7 +17,7 @@ class Weather {
   }
 
   async fetchLocation(input) {
-    const key = "3f86465e08723a0031ac7013675e093a";
+    const key = "";
 
     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=${key}`);
     const coordinates = await response.json();
@@ -25,7 +25,7 @@ class Weather {
   }
 
   async fetchOneCallApi(coord) {
-    const key = "3f86465e08723a0031ac7013675e093a";
+    const key = "";
 
     const { lat, lon } = coord[0];
 
