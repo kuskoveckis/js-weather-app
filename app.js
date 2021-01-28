@@ -2,7 +2,7 @@ class Weather {
   constructor() {
     this.weatherCards = document.querySelector(".weather-cards");
     this.overlayContainer = document.querySelector(".overlay");
-    this.key = "3f86465e08723a0031ac7013675e093a";
+    this.key = "";
     this.default = "London";
     this.city;
     this.day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
