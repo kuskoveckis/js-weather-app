@@ -14,6 +14,13 @@ body {
   background-size: cover;
 }
 
+@media only screen and (max-width: 700px) {
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, from(black), to(#343434));
+    background: linear-gradient(black, #343434);
+  }
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -149,21 +156,8 @@ main .weather-cards {
   }
 }
 
-main .weather-cards .weather-container {
+main .weather-cards .container {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   color: white;
   padding: 0 2rem 0 2rem;
   background: #020024;
@@ -177,33 +171,80 @@ main .weather-cards .weather-container {
   -webkit-box-shadow: 0px 0px 35px 5px #0c0c0c;
           box-shadow: 0px 0px 35px 5px #0c0c0c;
   min-width: 350px;
-  min-height: 700px;
+  min-height: 750px;
   margin: 0 2rem;
 }
 
 @media only screen and (max-width: 1300px) {
-  main .weather-cards .weather-container {
-    margin: 1rem 0;
+  main .weather-cards .container {
+    max-width: 100vw;
+    max-height: 400px;
+    padding: 0;
+    margin-bottom: 6rem;
   }
 }
 
-main .weather-cards .weather-container h1 {
+main .weather-cards .container .weather-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 1.2rem;
+  -webkit-border-radius: 1.2rem;
+  -moz-border-radius: 1.2rem;
+  -ms-border-radius: 1.2rem;
+  -o-border-radius: 1.2rem;
+  -webkit-box-shadow: 0px 0px 35px 5px #0c0c0c;
+          box-shadow: 0px 0px 35px 5px #0c0c0c;
+  min-width: 100%;
+  min-height: 100%;
+  transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -ms-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+}
+
+@media only screen and (max-width: 1300px) {
+  main .weather-cards .container .weather-container {
+    max-width: 100vw;
+    max-height: 400px;
+    padding: 0;
+    margin-bottom: 6rem;
+  }
+}
+
+main .weather-cards .container .weather-container h1 {
   font-size: 3rem;
   font-weight: 100;
 }
 
-main .weather-cards .weather-container .date {
+main .weather-cards .container .weather-container .date {
   font-weight: 100;
   color: rgba(255, 255, 255, 0.753);
   margin-bottom: 1rem;
 }
 
-main .weather-cards .weather-container .temperature {
+main .weather-cards .container .weather-container .temperature {
   font-size: 6rem;
   margin-bottom: 1rem;
 }
 
-main .weather-cards .weather-container .underline {
+main .weather-cards .container .weather-container .underline {
   content: "";
   height: 2px;
   width: 40%;
@@ -211,18 +252,18 @@ main .weather-cards .weather-container .underline {
   margin-bottom: 2rem;
 }
 
-main .weather-cards .weather-container .conditions {
+main .weather-cards .container .weather-container .conditions {
   font-size: 1.2rem;
   font-weight: 900;
   margin-bottom: 0.8rem;
 }
 
-main .weather-cards .weather-container .min-max-temp {
+main .weather-cards .container .weather-container .min-max-temp {
   font-weight: 900;
   margin-bottom: 1rem;
 }
 
-main .weather-cards .weather-container .wind {
+main .weather-cards .container .weather-container .wind {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,7 +271,7 @@ main .weather-cards .weather-container .wind {
   margin-bottom: 3rem;
 }
 
-main .weather-cards .weather-container .sunrise-sunset {
+main .weather-cards .container .weather-container .sunrise-sunset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -241,15 +282,15 @@ main .weather-cards .weather-container .sunrise-sunset {
   margin-bottom: 5rem;
 }
 
-main .weather-cards .weather-container .sunrise-sunset .sunrise,
-main .weather-cards .weather-container .sunrise-sunset .sunset {
+main .weather-cards .container .weather-container .sunrise-sunset .sunrise,
+main .weather-cards .container .weather-container .sunrise-sunset .sunset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 0.5rem;
 }
 
-main .weather-cards .weather-container .daily-btn {
+main .weather-cards .container .weather-container .daily-btn {
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
@@ -270,30 +311,86 @@ main .weather-cards .weather-container .daily-btn {
   -o-transition: 0.2s ease-in;
 }
 
-main .weather-cards .weather-container .daily-btn .fa-chevron-up {
+main .weather-cards .container .weather-container .daily-btn .fa-chevron-up {
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-main .weather-cards .weather-container .daily-btn:hover, main .weather-cards .weather-container .daily-btn:focus {
+main .weather-cards .container .weather-container .daily-btn:hover, main .weather-cards .container .weather-container .daily-btn:focus {
   background-color: #fabe8a;
 }
 
-main .weather-cards .weather-container .daily-forecast {
+main .weather-cards .container .overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -ms-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  background: #020024;
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), color-stop(0%, rgba(2, 0, 36, 0.3)), color-stop(0%, rgba(9, 9, 121, 0.3)), to(rgba(182, 85, 246, 0.3)));
+  background: linear-gradient(0deg, transparent, rgba(2, 0, 36, 0.3) 0%, rgba(9, 9, 121, 0.3) 0%, rgba(182, 85, 246, 0.3) 100%);
+  border-radius: 1.2rem;
+  -webkit-border-radius: 1.2rem;
+  -moz-border-radius: 1.2rem;
+  -ms-border-radius: 1.2rem;
+  -o-border-radius: 1.2rem;
+  -webkit-box-shadow: 0px 0px 35px 5px #0c0c0c;
+          box-shadow: 0px 0px 35px 5px #0c0c0c;
+}
+
+@media only screen and (max-width: 1300px) {
+  main .weather-cards .container .overlay {
+    max-width: 100vw;
+  }
+}
+
+main .weather-cards .container .overlay .hour {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2.5rem;
+}
+
+main .weather-cards .container .overlay .daily-forecast {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  gap: 3rem;
-  margin-bottom: 5rem;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: auto;
+  margin-bottom: 1rem;
 }
 
-main .weather-cards .weather-container .daily-forecast .daily {
+main .weather-cards .container .overlay .daily-forecast .daily {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,4 +399,36 @@ main .weather-cards .weather-container .daily-forecast .daily {
       -ms-flex-direction: column;
           flex-direction: column;
   color: white;
+}
+
+main .weather-cards .container .overlay .weather-btn {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+  background-color: peachpuff;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+  -moz-transition: 0.2s ease-in;
+  -ms-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+}
+
+main .weather-cards .container .overlay .weather-btn .fa-chevron-down {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+main .weather-cards .container .overlay .weather-btn:hover, main .weather-cards .container .overlay .weather-btn:focus {
+  background-color: #fabe8a;
 }
